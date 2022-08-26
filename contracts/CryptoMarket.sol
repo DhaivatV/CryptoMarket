@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.16;
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract CryptoMarket{
 
     struct ContractProperties{
         address CryptoMarketOwner;
         address[] registeredUserAdderss;
+        string[] items;
     }
     
     mapping (address => bool) hasRegistered;
@@ -27,6 +29,14 @@ contract CryptoMarket{
             hasRegistered[msg.sender] = true;
             contractProperties.registeredUserAdderss.push(msg.sender);
         }
+    }
+
+    function addItem(string memory item ) public  {
+        string memory Item = item;
+        string memory length = Strings.toString((bytes(item).length));
+        address setter = msg.sender;
+        string memory item_details = string.concat(Item,",",length,",",setter);
+        contractProperties.items.push(item_details);
     }
 
     
