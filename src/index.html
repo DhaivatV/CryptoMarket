@@ -13,8 +13,57 @@
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: montserrat;
+}
+nav{
+    background: #0082e6;
+    height: 80px;
+    width: 100%;   
+}
+label.logo{
+    color:white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin:0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+    </style>
 </head>
 <body>
+    <nav>
+        <label class="logo">CryptoLX</label>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Buy</a></li>
+            <li><a href="#">Details</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
     <h1>Welcome To CryptoMarket</h1><br>
 
     
@@ -24,10 +73,23 @@
     </div>
     <br>
    <h2> 
+    <h2> <h2 style="display: inline">
+        Contract  Address: <div id = "ethereum_account" style="display: inline"> ***********
+         </div></h2>
+     </div>
+     <br>
+    <h2> 
+        <h2> <h2 style="display: inline">
+            Owner Address: <div id = "ethereum_account" style="display: inline"> ***********
+             </div></h2>
+         </div>
+         <br>
+        <h2> 
     <h2 style="display: inline">
        Account Balance: <div id = "_mybalance" style="display: inline">  0  Ethers
         </div>
     </h2>
+    
         <div style="display: inline">
             <h2>
                 Register if you already haven't registered 
@@ -37,6 +99,14 @@
                     Register
                 </h2>
             </button>
+            <br>
+            <a href='https://www.coinbase.com/oauth/authorize/oauth_signin?account=all&client_id=0a986572691ed7e9cb12626959a58abacf4484b7998b209680d4488d26a30709&meta%5Baccount%5D=all&meta%5Bsend_limit_amount%5D=10000.00&meta%5Bsend_limit_currency%5D=USD&redirect_uri=https%3A%2F%2Fpay.coinbase.com%2Foauth%2Fexchange&response_type=code&scope=wallet%3Aaccounts%3Aread+wallet%3Abuys%3Aread+wallet%3Abuys%3Acreate+wallet%3Apayment-methods%3Aread+wallet%3Apayment-methods%3Alimits+wallet%3Atransactions%3Asend+wallet%3Atransactions%3Aread+wallet%3Auser%3Aread+wallet%3Asupported-assets%3Aread&state=%7B%22nonce%22%3A%22L8%2FOZ61zsLaHnwALIOwtXw%3D%3D%22%2C%22redirectUri%22%3A%22%2F%3FappId%3Dab4b8829-a59d-44d3-accc-de77e4f18df2%26attribution%3Dextension%26destinationWallets%3D%255B%257B%2522address%2522%253A%25220x7bcd52ed6315bd7e8ae38edb8'>
+            <button style="display: inline">
+                <h2>
+                    Add Balance
+                </h2>
+            </button>
+        </a>
         </div>
 
     
