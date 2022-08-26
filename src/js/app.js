@@ -1,7 +1,11 @@
 App = {
 
     init: function(){
-        return App.initWeb3();
+        return App.initRegister();
+    },
+
+    initRegister: function(){
+        
     },
 
     initWeb3 : async function(){
