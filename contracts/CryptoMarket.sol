@@ -39,5 +39,11 @@ contract CryptoMarket{
     //     contractProperties.items.push(item_details);
     // }
 
+    function getContractProperties() public view returns(address, address[] memory){
+
+        return (contractProperties.CryptoMarketOwner, contractProperties.registeredUserAdderss);
+    }
+
+
     
 }

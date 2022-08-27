@@ -1,75 +1,80 @@
+
+
 App = {
 
-    web3Provider: null,
-    contracts: {},
+web3Provider: null,
+contracts: {},
+  
 
     init: function(){
-        return App.initWeb3();
-    },
-
-    
-
-    initWeb3 : async function(){
-
-        
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const accounts = await provider.send("eth_requestAccounts", []);
-        document.getElementById("ethereum_account").innerHTML = accounts;
-        return App.initFetchBalance();
-    },
-
-    initFetchBalance : async function(){
-        var account  = document.getElementById("ethereum_account").innerHTML ;
-        balanceInWei =await  window.ethereum.request({method: 'eth_getBalance', params: [account, 'latest']}) ;
-        balance = ethers.utils.formatEther(balanceInWei)
-        document.getElementById("_mybalance").innerHTML = balance+"  Ethers";
         return App.initContract();
     },
 
     initContract: function(){
-        $.getJSON('CryptoMarket.json', function(CryptoMarketArtifact) {
-            App.contracts.CryptoMarket = TruffleContract(CryptoMarketArtifact);
-            
-            // Set the provider for our contract.
-            App.contracts.CryptoMarket.setProvider(window.ethereum);
-            console.log("Contract Executed");
-            return App.checkUserRegistration();
+      $.getJSON('CryptoMarket.json', function(CryptoMarketArtifact) {
+          App.contracts.CryptoMarket = TruffleContract(CryptoMarketArtifact);
           
-          });
-    },
+          // Set the provider for our contract.
+          App.contracts.CryptoMarket.setProvider(window.ethereum);
+          console.log("Contract Executed");
+          return App.initWeb3();
+        
+        });
 
-    checkUserRegistration: function(){
-      var self = this;
-    console.log("Checking user registration...please wait");
+    
+  },
+
+    initWeb3 : async function(){
+
+      if (window.ethereum){
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        console.log("provider set......Now checking user registerartion");
+        App.checkUserRegistration();
+        App.displayAccountInfo(provider);
+        App.displayContractInfo();
+        
+
+    }
+
+
+    return null;
+  },
+
+  checkUserRegistration: function(){ 
+    console.log("Checking User Registeration");
+    var self = this;
     var meta;
-    App.contracts.CryptoMarket.deployed().then(async function(instance) {
+    App.contracts.CryptoMarket.deployed().then(async function(instance){
       meta = instance;
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const account = accounts;
-      console.log(account)
-      return meta.checkUserRegistration.call({from: account});
-    }).then(function(value) {
-      console.log(value)
-      if (value) { 
-        alert("User is already registered");
-      } else {
-        if (confirm("New user: we need to setup an account for you")) {
-          App.initRegister();
-        } else {
-          return null;  
+      return meta.checkUserRegistration.call({from: account});}).then(function(value) {
+        
+        if (value) { 
+          console.log("User Already Registered");
+          return null;
         }
-      }
-    }).catch(function(e) {
+        
+        else{
+          if (confirm("New user: we need to register you to fetch your account details.")){
+            App.initRegister();
+            
+          }
+          else{
+            return null;
+          }
+        }
+      
+    }).catch(function(e){
       console.log(e);
       console.log("Error checking user registration; see log");
     });
-    return null;
+  return null;
+  },
 
-    },
-
-    initRegister: function(){
-        console.log("Registration Initiated")
-        var self = this;
+  initRegister: function(){
+    console.log("Registering user now");
+    var self = this;
         console.log("User registration:(open MetaMask->submit->wait)");
         var meta;
         App.contracts.CryptoMarket.deployed().then(async function(instance) {
@@ -93,12 +98,46 @@ App = {
 
     
       return null;
-    },
+  },
+
+  displayAccountInfo: async function(provider){
+    
+    const accounts = await provider.send("eth_requestAccounts", []);
+    balanceInWei = await window.ethereum.request({method: 'eth_getBalance', params: [accounts[0], 'latest']});
+    balance = ethers.utils.formatEther(balanceInWei)
+    document.getElementById("_mybalance").innerHTML = balance+"  Ethers";
+    document.getElementById("ethereum_account").innerHTML = " "+accounts;
+  return null;
+  },
+
+  displayContractInfo: function(){
+    console.log("Contract Properties")
+    var self = this;
+    var meta;
+    App.contracts.CryptoMarket.deployed().then(async function(instance){
+      meta = instance;
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const account = accounts[0];
+      return meta.getContractProperties.call({from: account});}).then(function(value) {
+        var networkAddress = App.contracts.CryptoMarket.address;
+        document.getElementById("contractaddress").innerHTML = " " + networkAddress;
+        var by = value;
+        var registeredUsersAddress = value[0];
+        document.getElementById("contractowner").innerHTML = " " + registeredUsersAddress;
+        
+    });
+  
+    return null;
+  },
+
+
 
 };
 
+  
+
 $(document).ready(function(){
     
-    App.init();
+  App.init();
 
 });
