@@ -22,7 +22,7 @@ App = {
         var account  = document.getElementById("ethereum_account").innerHTML ;
         balanceInWei =await  window.ethereum.request({method: 'eth_getBalance', params: [account, 'latest']}) ;
         balance = ethers.utils.formatEther(balanceInWei)
-        document.getElementById("_mybalance").innerHTML = balance+" Ethers";
+        document.getElementById("_mybalance").innerHTML = balance+"  Ethers";
         return App.initContract();
     },
 
@@ -40,29 +40,29 @@ App = {
 
     checkUserRegistration: function(){
       var self = this;
-      console.log("Checking user registration...please wait");
-      var meta;
-      App.contracts.CryptoMarket.deployed().then(async function(instance) {
+    console.log("Checking user registration...please wait");
+    var meta;
+    App.contracts.CryptoMarket.deployed().then(async function(instance) {
       meta = instance;
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const account = accounts[0];
+      const account = accounts;
+      console.log(account)
       return meta.checkUserRegistration.call({from: account});
-        }).then(function(value) {
-        if (value) {
-        alert("User is registered");
-        } else {
-        if (confirm("New user: we need to Register You.")) {
+    }).then(function(value) {
+      console.log(value)
+      if (value) { 
+        alert("User is already registered");
+      } else {
+        if (confirm("New user: we need to setup an account for you")) {
           App.initRegister();
         } else {
-          return null;
+          return null;  
         }
       }
     }).catch(function(e) {
       console.log(e);
-      alert("Error checking user registration; see log");
+      console.log("Error checking user registration; see log");
     });
-
-    console.log("User already registerd")
     return null;
 
     },
@@ -83,7 +83,7 @@ App = {
         });
         }).then(function(result) {
         var gasUsedWei = result.receipt.gasUsed;
-        var gasUsedEther = ether.utils.formatEther(gasUsedWei);
+        var gasUsedEther = ethers.utils.formatEther(gasUsedWei);
         alert("User is registered...gas spent: " + gasUsedEther + "(ethers)");
         
         }).catch(function(e) {
