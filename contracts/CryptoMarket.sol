@@ -31,13 +31,13 @@ contract CryptoMarket{
         }
     }
 
-    function addItem(string memory item ) public  {
-        string memory Item = item;
-        string memory length = Strings.toString((bytes(item).length));
-        address setter = msg.sender;
-        string memory item_details = string.concat(Item,",",length,",",setter);
-        contractProperties.items.push(item_details);
-    }
+    // function addItem(string memory item ) public  {
+    //     string memory Item = item;
+    //     string memory length = Strings.toString((bytes(item).length));
+    //     address setter = msg.sender;
+    //     string memory item_details = string.concat(Item,",",length,",",setter);
+    //     contractProperties.items.push(item_details);
+    // }
 
     
 }
