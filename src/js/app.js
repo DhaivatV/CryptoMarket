@@ -15,9 +15,20 @@ contracts: {},
           App.contracts.CryptoMarket = TruffleContract(CryptoMarketArtifact);
           
           // Set the provider for our contract.
-          App.contracts.CryptoMarket.setProvider(window.ethereum);
-          console.log("Contract Executed");
-          return App.initWeb3();
+          if (window.ethereum)
+            {
+              App.contracts.CryptoMarket.setProvider(window.ethereum);
+            console.log("Contract Executed");
+            return App.initWeb3();
+          }
+
+          else{
+            if (window.confirm('Please Install MetaMask. Click on OK another website.')) {
+              window.location.href='https://metamask.io/';
+            }
+          }
+
+          
         
         });
 
@@ -32,13 +43,17 @@ contracts: {},
         App.checkUserRegistration();
         App.displayAccountInfo(provider);
         App.displayContractInfo();
+
+      }
+
+      
+      },
         
 
-    }
+    
 
 
-    return null;
-  },
+    
 
   checkUserRegistration: function(){ 
     console.log("Checking User Registeration");
