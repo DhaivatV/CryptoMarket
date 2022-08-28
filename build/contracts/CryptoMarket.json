@@ -19,8 +19,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -45,8 +44,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"checkUserRegistration\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cryptomarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractProperties\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"registerUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/CryptoMarket.sol\":\"CryptoMarket\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/Strings.sol\":{\"keccak256\":\"0xaf159a8b1923ad2a26d516089bceca9bdeaeacd04be50983ea00ba63070f08a3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6f2cf1c531122bc7ca96b8c8db6a60deae60441e5223065e792553d4849b5638\",\"dweb:/ipfs/QmPBdJmBBABMDCfyDjCbdxgiqRavgiSL88SYPGibgbPas9\"]},\"project:/contracts/CryptoMarket.sol\":{\"keccak256\":\"0xd6e26a26324e48d7cde66e26d4e681297ece9f44b85fd172eb96116ad0f5827a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a2becc8ca1eefb5a381b7284e2d3c1a186fc4356b725fe5a7bb7f9eea2f4274d\",\"dweb:/ipfs/QmUUoZ2PmxvE9NdEc4qJ76czFPaeJX7LitK3Re7PqtPCSX\"]}},\"version\":1}",
@@ -2440,8 +2438,7 @@
     }
   },
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-08-27T17:58:40.428Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-08-27T21:18:22.668Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

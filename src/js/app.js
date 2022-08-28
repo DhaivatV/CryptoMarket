@@ -39,10 +39,22 @@ contracts: {},
 
       if (window.ethereum){
         const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = provider.getSigner()
+        console.log(signer);
         console.log("provider set......Now checking user registerartion");
         App.checkUserRegistration();
         App.displayAccountInfo(provider);
         App.displayContractInfo();
+
+      }
+      else{
+        const provider = new ethers.providers.JsonRpcProvider();
+        const signer = provider.getSigner()
+        console.log("provider set......Now checking user registerartion");
+        App.checkUserRegistration();
+        App.displayAccountInfo(provider);
+        App.displayContractInfo();
+
 
       }
 
@@ -143,6 +155,19 @@ contracts: {},
     });
   
     return null;
+  },
+
+  handleSignMessage : function( publicAddress, nonce ) {
+    return new Promise((resolve, reject) =>
+      web3.personal.sign(
+        web3.fromUtf8(`I am signing my one-time nonce: ${nonce}`),
+        publicAddress,
+        (err, signature) => {
+          if (err) return reject(err);
+          return resolve({ publicAddress, signature });
+        }
+      )
+    );
   },
 
 
