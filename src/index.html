@@ -18,57 +18,68 @@
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
-        * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Josefin Sans", sans-serif;
-  }
-  
-  header {
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+
+body {
+    font-family: "open sans";
+    font-size: 18px;
+    color: #fff;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url("./images/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 90%;
-  }
-  
-  nav {
-    width: 100%;
-    height: 15vh;
-    background: rgb(57, 56, 56);
-    color: white;
+    position: relative;
+    overflow: hidden;
+    background-image: url(./images/banner.jpg);
+}
+
+header {
+    padding: 20px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-transform: uppercase;
-  }
-  
-  nav .logo {
-    width: 25%;
-    text-align: center;
-    color: white;
-    /*background: red;*/
-  }
-  
-  nav .menu {
-    width: 40%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.logo{
+    font-size: 45px;
+}
+.logo span{
+    color: #FFB633;
+}
+
+nav ul {
     display: flex;
-    justify-content: space-around;
-  }
-  
-  nav .menu a {
-    width: 25%;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-  }
-  
-  nav .menu a:first-child {
-    color: #18edc3;
-  }
+}
+
+nav ul li {
+    margin-left: 50px;
+}
+
+nav ul li a {
+    border-bottom: 1px solid transparent;
+    padding: 5px;
+    padding-bottom: 15px;
+    transition: .5s;
+}
+
+nav ul li a:hover {
+    border-color: #FFB633;
+}
+
   
   main {
     width: 100%;
@@ -80,11 +91,14 @@
     color: white;
   }
   
-  section h3 {
-    font-size: 45px;
+  section h1 {
+    font-size: 55px;
     font-weight: 200;
     letter-spacing: 3px;
     text-shadow: 1px 1px 2px black;
+  }
+  section h1 span{
+    color: #FFB633;
   }
   
   section h4 {
@@ -115,45 +129,53 @@
     transition: all 0.5s ease;
   }
   
-  section .btnone {
-    /*background: #00b894;*/
-    background: #fff;
-    color: #000;
-  }
-  
-  .btnone:hover {
-    background: #00b894;
-    color: white;
-  }
-  
-  section .btntwo {
-    background: #00b894;
-    color: white;
-  }
-  
-  .btntwo:hover {
-    background: #fff;
-    color: #000;
-  }
-  
+  .btn {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #FFB633;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    transition: .4s;
+}
+
+.btn::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: .4s;
+}
+
+.btn:hover::before {
+    width: 54%;
+}
+ 
     </style>
 </head>
 <body>
-    <header>
-	
-        <nav>
-            <div class="logo"> <h1 style="font-size: 30px;"> CryptoLX </h1> </div>
-            <div class="menu">
-                <a href="#" style="font-size: 20px">Home</a>
-                <a href="#">Buy</a>
-                <a href="#" target="_blank">Account</a>
-                <a href="#">contact</a>
-            </div>
-        </nav>
+  <header>
+    <div class="logo">
+        <!-- <img src="img/logo.png" alt=""> -->
+        Crypto<span>LX</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Buy</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
         
             <main>
                 <section>
-                    <h3>Welcome To CryptoMarket</h3>
+                    <h1>Welcome To <span>CryptoMarket</span></h1>
                     <h4>Ethereum Address:<div id = "ethereum_account" style="display: inline">  ***********
                     </div></h4>
                     <h4>Contract Address:<div id = "contractaddress" style="display: inline">  ***********
@@ -164,7 +186,7 @@
                     </div></h4>
                     <p>"Buy and Sell using your Crypto Here"</p>
                     <!-- <a href="#" class="btnone" onclick="App.checkUserRegistration()">Register</a> -->
-                    <a href='https://www.coinbase.com/oauth/authorize/oauth_signin?account=all&client_id=0a986572691ed7e9cb12626959a58abacf4484b7998b209680d4488d26a30709&meta%5Baccount%5D=all&meta%5Bsend_limit_amount%5D=10000.00&meta%5Bsend_limit_currency%5D=USD&redirect_uri=https%3A%2F%2Fpay.coinbase.com%2Foauth%2Fexchange&response_type=code&scope=wallet%3Aaccounts%3Aread+wallet%3Abuys%3Aread+wallet%3Abuys%3Acreate+wallet%3Apayment-methods%3Aread+wallet%3Apayment-methods%3Alimits+wallet%3Atransactions%3Asend+wallet%3Atransactions%3Aread+wallet%3Auser%3Aread+wallet%3Asupported-assets%3Aread&state=%7B%22nonce%22%3A%22L8%2FOZ61zsLaHnwALIOwtXw%3D%3D%22%2C%22redirectUri%22%3A%22%2F%3FappId%3Dab4b8829-a59d-44d3-accc-de77e4f18df2%26attribution%3Dextension%26destinationWallets%3D%255B%257B%2522address%2522%253A%25220x7bcd52ed6315bd7e8ae38edb8' class="btntwo">Add Balance</a>
+                    <a href='https://www.coinbase.com/oauth/authorize/oauth_signin?account=all&client_id=0a986572691ed7e9cb12626959a58abacf4484b7998b209680d4488d26a30709&meta%5Baccount%5D=all&meta%5Bsend_limit_amount%5D=10000.00&meta%5Bsend_limit_currency%5D=USD&redirect_uri=https%3A%2F%2Fpay.coinbase.com%2Foauth%2Fexchange&response_type=code&scope=wallet%3Aaccounts%3Aread+wallet%3Abuys%3Aread+wallet%3Abuys%3Acreate+wallet%3Apayment-methods%3Aread+wallet%3Apayment-methods%3Alimits+wallet%3Atransactions%3Asend+wallet%3Atransactions%3Aread+wallet%3Auser%3Aread+wallet%3Asupported-assets%3Aread&state=%7B%22nonce%22%3A%22L8%2FOZ61zsLaHnwALIOwtXw%3D%3D%22%2C%22redirectUri%22%3A%22%2F%3FappId%3Dab4b8829-a59d-44d3-accc-de77e4f18df2%26attribution%3Dextension%26destinationWallets%3D%255B%257B%2522address%2522%253A%25220x7bcd52ed6315bd7e8ae38edb8' class="btn">Add Balance</a>
                 </section>
             </main>
         
