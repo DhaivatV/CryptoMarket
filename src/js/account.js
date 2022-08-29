@@ -78,7 +78,7 @@ contracts: {},
       return meta.checkUserRegistration.call({from: account});}).then(function(value) {
         
         if (value) { 
-          console.log("User Already Registered");
+          alert("User Already Registered");
           return null;
         }
         

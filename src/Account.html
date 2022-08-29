@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoMarket</title>
+    <!-- <link href="css/app.css" rel="stylesheet"> -->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"type="application/javascript"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/account.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+
+body {
+    font-family: "open sans";
+    font-size: 18px;
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-image: url(./images/banner.jpg);
+}
+
+header {
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.logo{
+    font-size: 45px;
+}
+.logo span{
+    color: #FFB633;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 50px;
+}
+
+nav ul li a {
+    border-bottom: 1px solid transparent;
+    padding: 5px;
+    padding-bottom: 15px;
+    transition: .5s;
+}
+
+nav ul li a:hover {
+    border-color: #FFB633;
+}
+
+  
+  main {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  section h1 {
+    font-size: 55px;
+    font-weight: 200;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px black;
+  }
+  section h1 span{
+    color: #FFB633;
+  }
+  
+  section h4 {
+    margin: 30px 0 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 2px 1px 5px black;
+    text-transform: uppercase;
+  }
+  
+  section p {
+    font-size: 25px;
+    word-spacing: 2px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 1px black;
+  }
+  
+  section a {
+    padding: 12px 30px;
+    border-radius: 4px;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: #FFB633;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    transition: .4s;
+}
+
+.btn::before {
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: .4s;
+}
+
+.btn:hover::before {
+    width: 54%;
+}
+ 
+    </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <!-- <img src="img/logo.png" alt=""> -->
+        Crypto<span>LX</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Buy</a></li>
+            <li><a href="Account.html">Account</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+        
+            <main>
+                <section>
+                    <h1>Welcome To <span>CryptoMarket</span></h1>
+                    <h4>Ethereum Address:<div id = "ethereum_account" style="display: inline">  ***********
+                    </div></h4>
+                    <h4>Contract Address:<div id = "contractaddress" style="display: inline">  ***********
+                    </div></h4>
+                    <h4>Owner Address:<div id = "contractowner" style="display: inline">  ***********
+                    </div></h4>
+                    <h4>Account Balance: <div id = "_mybalance" style="display: inline">    0  Ethers
+                    </div></h4>
+                    <p>"Buy and Sell using your Crypto Here"</p>
+                    <!-- <a href="#" class="btnone" onclick="App.checkUserRegistration()">Register</a> -->
+                    <a href='https://www.coinbase.com/oauth/authorize/oauth_signin?account=all&client_id=0a986572691ed7e9cb12626959a58abacf4484b7998b209680d4488d26a30709&meta%5Baccount%5D=all&meta%5Bsend_limit_amount%5D=10000.00&meta%5Bsend_limit_currency%5D=USD&redirect_uri=https%3A%2F%2Fpay.coinbase.com%2Foauth%2Fexchange&response_type=code&scope=wallet%3Aaccounts%3Aread+wallet%3Abuys%3Aread+wallet%3Abuys%3Acreate+wallet%3Apayment-methods%3Aread+wallet%3Apayment-methods%3Alimits+wallet%3Atransactions%3Asend+wallet%3Atransactions%3Aread+wallet%3Auser%3Aread+wallet%3Asupported-assets%3Aread&state=%7B%22nonce%22%3A%22L8%2FOZ61zsLaHnwALIOwtXw%3D%3D%22%2C%22redirectUri%22%3A%22%2F%3FappId%3Dab4b8829-a59d-44d3-accc-de77e4f18df2%26attribution%3Dextension%26destinationWallets%3D%255B%257B%2522address%2522%253A%25220x7bcd52ed6315bd7e8ae38edb8' class="btn">Add Balance</a>
+                </section>
+            </main>
+        
+        
+        </header>    
+</body>
+</html>
