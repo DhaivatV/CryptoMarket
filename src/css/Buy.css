@@ -59,6 +59,9 @@ nav ul li a {
 nav ul li a:hover {
     border-color: #FFB633;
 }
+.main{
+    margin: 2%;
+}
 .card{
     width:20%;
     display: inline-block;
