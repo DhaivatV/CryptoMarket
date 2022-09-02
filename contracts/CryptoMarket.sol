@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.16;
-import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract CryptoMarket{
 
     struct ContractProperties{
         address CryptoMarketOwner;
         address[] registeredUserAdderss;
-        string[] items;
+        string[] soldItems;
     }
     
     mapping (address => bool) hasRegistered;
+    mapping (address => string) userItem;
    
     ContractProperties contractProperties;
 
@@ -31,12 +31,22 @@ contract CryptoMarket{
         }
     }
 
-    // function addItem(string memory item ) public  {
-    //     string memory Item = item;
-    //     string memory length = Strings.toString((bytes(item).length));
-    //     address setter = msg.sender;
-    //     string memory item_details = string.concat(Item,",",length,",",setter);
-    //     contractProperties.items.push(item_details);
+    // function buyItem(string memory item, address payable _to ) public payable returns(bool result, address addr, data)  {
+    //     address owner = msg.sender;
+    //     (bool sent, bytes memory data) = _to.call{value: msg.value}("");
+    //     require(sent, "Failed to send Ether");
+    //     if (sent){
+    //         item = userItem[owner];
+    //         contractProperties.soldItems.push(item);
+    //         result = true;
+    //         return (result, owner, data);
+    //     }
+
+    //     else{
+    //         result= false;
+    //         return (result, _to, data);
+    //     }
+        
     // }
 
     function getContractProperties() public view returns(address, address[] memory){
