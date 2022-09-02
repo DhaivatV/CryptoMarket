@@ -12,6 +12,7 @@ contract CryptoMarket{
     
     mapping (address => bool) hasRegistered;
     mapping (address => string) userItem;
+    mapping (address => string) txnHash;
    
     ContractProperties contractProperties;
 
@@ -31,23 +32,15 @@ contract CryptoMarket{
         }
     }
 
-    // function buyItem(string memory item, address payable _to ) public payable returns(bool result, address addr, data)  {
-    //     address owner = msg.sender;
-    //     (bool sent, bytes memory data) = _to.call{value: msg.value}("");
-    //     require(sent, "Failed to send Ether");
-    //     if (sent){
-    //         item = userItem[owner];
-    //         contractProperties.soldItems.push(item);
-    //         result = true;
-    //         return (result, owner, data);
-    //     }
+    function buyItem(string memory item, string calldata txn_hash ) public payable returns(bool )  {
 
-    //     else{
-    //         result= false;
-    //         return (result, _to, data);
-    //     }
-        
-    // }
+        address owner = msg.sender;
+        userItem[owner]  = item;
+        txnHash[owner] = txn_hash;
+        bool sold = true;
+        return sold;
+
+    }
 
     function getContractProperties() public view returns(address, address[] memory){
 
