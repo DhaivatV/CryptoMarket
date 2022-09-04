@@ -9,10 +9,12 @@ contract CryptoMarket{
         address[] registeredUserAdderss;
         string[] soldItems;
     }
+
+    
     
     mapping (address => bool) hasRegistered;
-    mapping (address => string) userItem;
-    mapping (address => string) txnHash;
+    mapping (address => bool) bought;
+    
    
     ContractProperties contractProperties;
 
@@ -32,14 +34,24 @@ contract CryptoMarket{
         }
     }
 
-    function buyItem(string memory item, string calldata txn_hash ) public payable returns(bool )  {
+    // function buyItem() public   {
 
-        address owner = msg.sender;
-        userItem[owner]  = item;
-        txnHash[owner] = txn_hash;
-        bool sold = true;
-        return sold;
+    //     // address owner = msg.sender;
+    //     // userItem[owner]  = item;
+    //     // txnHash[owner] = txn_hash;
+    //     // bool sold = true;
+        
 
+    // }
+
+    function BuyItem() public {
+        // if (!hasRegistered[msg.sender]){
+        //     hasRegistered[msg.sender] = true;
+        //     contractProperties.registeredUserAdderss.push(msg.sender);
+        bought[msg.sender] = true;
+
+        
+        
     }
 
     function getContractProperties() public view returns(address, address[] memory){
