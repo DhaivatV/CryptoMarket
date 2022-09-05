@@ -71,34 +71,32 @@ App = {
 
     App.hash = txHash
 
-    // console.log(typeof(txHash))
-    // var self = this;
-    // var meta;
-    // App.contracts.CryptoMarket.deployed().then(async function(instance){
-    // meta = instance;
-    // const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-    // const account = accounts;
-    // return meta.BuyItem({},{
-    //   from: account[0],
-    //   gas: 6385876,
-    //   gasPrice: 20000000000
-    // });
-
-    // document.getElementById("btn").innerHTML = "View Txn Details";
-    document.getElementById("view").style.display = "block";
-    document.getElementById("btn").style.display = "none";
-    // document.getElementById("view").addEventListener("click", App.veiwTxnhash(txHash));
-    // App.test(txHash)
-
-    // })
+    console.log(typeof(txHash))
+    var self = this;
+    var meta;
+    App.contracts.CryptoMarket.deployed().then(async function(instance){
+      meta = instance;
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const account = accounts;
+      return meta.buyitem("shoes",{from: account[0], gas: 6385876, gasPrice: 20000000000});
+    
+  })
+  console.log("data added to blockchain")
+  document.getElementById("view").style.display = "block";
+  document.getElementById("btn").style.display = "none";
+  
   },
-  // test: function () {
-  //   document.getElementById("view").addEventListener("click", App.veiwTxnhash(App.hash));
-  // },
-  veiwTxnhash: function () {
-    console.log("abcd");
-    document.getElementById("content").innerHTML = App.hash;
+    
+  
+    
+  
+  
+veiwTxnhash: function () {
+  console.log("abcd");
+  document.getElementById("content").innerHTML = App.hash;
   },
+
+
 };
 
 $(document).ready(function () {

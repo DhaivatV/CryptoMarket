@@ -7,13 +7,14 @@ contract CryptoMarket{
     struct ContractProperties{
         address CryptoMarketOwner;
         address[] registeredUserAdderss;
-        string[] soldItems;
+        address[] owner;
+        string[] items;
     }
 
     
     
     mapping (address => bool) hasRegistered;
-    mapping (address => bool) bought;
+    mapping (address => string) bought;
     
    
     ContractProperties contractProperties;
@@ -34,25 +35,14 @@ contract CryptoMarket{
         }
     }
 
-    // function buyItem() public   {
-
-    //     // address owner = msg.sender;
-    //     // userItem[owner]  = item;
-    //     // txnHash[owner] = txn_hash;
-    //     // bool sold = true;
-        
-
-    // }
-
-    function BuyItem() public {
-        // if (!hasRegistered[msg.sender]){
-        //     hasRegistered[msg.sender] = true;
-        //     contractProperties.registeredUserAdderss.push(msg.sender);
-        bought[msg.sender] = true;
-
-        
-        
+    function buyitem(string memory item) public {
+        address owner = msg.sender;
+        contractProperties.owner.push(owner);
+        bought[msg.sender] = item;
     }
+    
+
+    
 
     function getContractProperties() public view returns(address, address[] memory){
 
