@@ -19,8 +19,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -58,8 +57,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"item\",\"type\":\"string\"}],\"name\":\"buyitem\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"checkUserRegistration\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cryptomarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractProperties\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"registerUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/CryptoMarket.sol\":\"CryptoMarket\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/CryptoMarket.sol\":{\"keccak256\":\"0xbcd91bbae177d1d9973626b604c54001c5380a7a3a7666b9b7a25eb770c283d7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://32cd35cb612af7e44261c08722818717f77d9a98caae64cb2788eba7094dc4c6\",\"dweb:/ipfs/QmYhqcsU17njghfZ3AxBzUhJiMqGvRnSSL6wsVJMT57Wbr\"]}},\"version\":1}",
@@ -7209,8 +7207,7 @@
     }
   },
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-09-05T11:38:22.653Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-09-05T19:37:48.561Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

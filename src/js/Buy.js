@@ -92,8 +92,8 @@ App = {
   
   
 veiwTxnhash: function () {
-  console.log("abcd");
-  document.getElementById("content").innerHTML = App.hash;
+  
+  document.getElementById("details").innerHTML = App.hash;
   },
 
 
