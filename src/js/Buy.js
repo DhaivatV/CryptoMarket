@@ -49,6 +49,8 @@ App = {
     var Item = item
     var Price = price
 
+    if (item && price){
+
     //  price = 3000000000000000000;
 
     //   hexPrice = ethers.utils.hexlify(price)
@@ -87,6 +89,13 @@ App = {
   console.log("data added to blockchain")
   document.getElementById("view").style.display = "block";
   document.getElementById("btn").style.display = "none";
+
+}
+
+else{
+  console.log("add price and item name")
+  return null;
+}
   
   },
     
