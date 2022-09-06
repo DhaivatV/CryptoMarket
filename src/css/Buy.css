@@ -89,7 +89,7 @@ header i:hover{
     width: 80%;
     margin-top: 10px;
 }
-.price{
+#price{
     font-weight: bolder;
     text-transform: capitalize;
     margin: 1em;

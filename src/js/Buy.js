@@ -45,7 +45,7 @@ App = {
 
   
 
-  buyItem: async function () {
+  buyItem: async function (item, price) {
     //  price = 3000000000000000000;
 
     //   hexPrice = ethers.utils.hexlify(price)
@@ -57,7 +57,7 @@ App = {
       // gas: '0x5', // customizable by user during MetaMask confirmation.
       to: "0xf4392A8fB085d64Ec0e772f6CeB03B7b4254AaF5", // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
-      value: "0x29a2241af62c0", // Only required to send ether to the recipient from the initiating external account.
+      value: "0x29a2241af62c0000", // Only required to send ether to the recipient from the initiating external account.
       // data:
       //   '0x7f7465737432000000000000000000000000000000000000000000000000000000600057', // Optional, but used for defining smart contract creation and interaction.
       chainId: "0x3", // Used to prevent transaction reuse across blockchains. Auto-filled by MetaMask.
@@ -102,3 +102,26 @@ veiwTxnhash: function () {
 $(document).ready(function () {
   App.init();
 });
+
+fetch('https://fakestoreapi.com/products').then((data)=>{
+    // console.log(data)
+    return data.json();
+}).then((completedata)=>{
+    // console.log(completedata)
+    let dataval="";
+    completedata.map((val)=>{
+        dataval+=`<div class="card">
+        <h1 class="title">${val.title.substring(0,12)}</h1>
+          <img src=${val.image} alt="img" class="images" />
+          <p class="desc">${val.description.substring(0,100)}</p>
+          <p id="price">ETH ${((val.price)/10).toFixed(2)}</p>
+          <button onclick="App.buyItem()" id="btn">BUY</button>
+          <a href="transaction.html"><button  id="view" style="display: none; margin:auto">Show</button></a>
+      </div>`;
+    });
+    document.getElementById("main").innerHTML=dataval;
+
+
+}).catch((error)=>{
+    console.log(error)
+})
