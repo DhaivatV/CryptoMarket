@@ -13,8 +13,9 @@
     <script src="js/truffle-contract.js"></script>
     <script src="js/Buy.js"></script>
     <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   </head>
   <body>
@@ -31,9 +32,13 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </nav>
+      <div>
+        <i class="bx bx-shopping-bag"></i>
+    </div>
     </header>
-    <div class="main">
-      <div class="card">
+    <div id="main">
+
+      <!-- <div class="card">
         <div class="image">
           <img src="./images/1.jpg" />
         </div>
@@ -45,99 +50,12 @@
           <button onclick="App.buyItem()" id="btn">BUY</button>
           <a href="transaction.html"><button  id="view" style="display: none; margin:auto">Show</button></a>
         </div>
-      </div>
+      </div> -->
+      
 
-      <div class="card">
-        <div class="image">
-          <img src="./images/2.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="image">
-          <img src="./images/3.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="image">
-          <img src="./images/4.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button >BUY</button>
-        </div>
-      </div>
-
-      <!-- <div class="card">
-        <div class="image">
-          <img src="./images/5.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="image">
-          <img src="./images/6.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="image">
-          <img src="./images/7.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="image">
-          <img src="./images/8.jpg" />
-        </div>
-        <div class="title">
-          <h1>Title</h1>
-        </div>
-        <div class="desc">
-          <p>Description of product</p>
-          <button>BUY</button>
-        </div> -->
       </div>
 
     </div>
+    <script src="./buy.js"></script>
   </body>
 </html>
