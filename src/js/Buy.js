@@ -46,6 +46,9 @@ App = {
   
 
   buyItem: async function (item, price) {
+    var Item = item
+    var Price = price
+
     //  price = 3000000000000000000;
 
     //   hexPrice = ethers.utils.hexlify(price)
