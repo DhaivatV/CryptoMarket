@@ -84,7 +84,7 @@ App = {
       meta = instance;
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const account = accounts;
-      return meta.buyitem(["shoes"],{from: account[0], gas: 6721975, gasPrice: 20000000000});
+      return meta.buyitem([""],{from: account[0], gas: 8000000, gasPrice: 20000000000});
     
   })
   console.log("data added to blockchain")

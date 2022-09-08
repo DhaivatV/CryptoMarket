@@ -34,7 +34,7 @@ contract CryptoMarket{
         }
     }
 
-    function buyitem(string[] calldata item) public payable {
+    function buyitem(string[2] memory item) public payable {
         
         for (uint i=0; i<item.length; i++){
 
