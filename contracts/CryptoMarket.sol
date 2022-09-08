@@ -7,13 +7,13 @@ contract CryptoMarket{
     struct ContractProperties{
         address CryptoMarketOwner;
         address[] registeredUserAdderss;
-        string[] itemsSold;
+        mapping (address => string[]) itemAndOwner;
     }
 
     
     
     mapping (address => bool) hasRegistered;
-    mapping (address => string) bought;
+    
     
    
     ContractProperties contractProperties;
@@ -34,17 +34,27 @@ contract CryptoMarket{
         }
     }
 
-    function buyitem(string[] memory item) public {
-        address owner = msg.sender;
-        uint arr_len = item.length;
-        for(uint i=0; i<=arr_len; i++ ){
-            contractProperties.itemsSold.push(item[i]);
-            bought[owner] = item[i];
+    function buyitem(string[] calldata item) public payable {
+        
+        for (uint i=0; i<item.length; i++){
+
+           
+            contractProperties.itemAndOwner[msg.sender].push(item[i]);
+            
+            
         }
+        
+        
         
         
 
     }
+
+    function getUserItems() public view  returns(string[] memory) {
+        
+       return  contractProperties.itemAndOwner[msg.sender];
+
+     }
     
 
     
