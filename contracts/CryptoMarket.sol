@@ -7,8 +7,7 @@ contract CryptoMarket{
     struct ContractProperties{
         address CryptoMarketOwner;
         address[] registeredUserAdderss;
-        address[] owner;
-        string[] items;
+        string[] itemsSold;
     }
 
     
@@ -35,10 +34,16 @@ contract CryptoMarket{
         }
     }
 
-    function buyitem(string memory item) public {
+    function buyitem(string[] memory item) public {
         address owner = msg.sender;
-        contractProperties.owner.push(owner);
-        bought[msg.sender] = item;
+        uint arr_len = item.length;
+        for(uint i=0; i<=arr_len; i++ ){
+            contractProperties.itemsSold.push(item[i]);
+            bought[owner] = item[i];
+        }
+        
+        
+
     }
     
 
