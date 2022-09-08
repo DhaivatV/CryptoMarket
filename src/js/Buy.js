@@ -13,6 +13,7 @@ App = {
 
       // Set the provider for our contract.
       if (window.ethereum) {
+        console.log(window.ethereum)
         App.contracts.CryptoMarket.setProvider(window.ethereum);
         console.log("Contract Executed");
         return App.initWeb3();
@@ -114,6 +115,7 @@ veiwTxnhash: function () {
 $(document).ready(function () {
   App.init();
 });
+
 
 fetch('https://fakestoreapi.com/products').then((data)=>{
     // console.log(data)
