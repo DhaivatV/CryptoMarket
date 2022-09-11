@@ -13,6 +13,7 @@ App = {
 
       // Set the provider for our contract.
       if (window.ethereum) {
+        console.log(window.ethereum)
         App.contracts.CryptoMarket.setProvider(window.ethereum);
         console.log("Contract Executed");
         return App.initWeb3();
@@ -46,11 +47,11 @@ App = {
   
 
   buyItem: async function (item, price) {
-    var Item = item
-    var Price = price
+    var Item = ["shoes"]
+    var Price = "0x29a2241af62c0000"
 
-    if (item && price){
-
+    if (Item && Price){
+      console.log(Item)
     //  price = 3000000000000000000;
 
     //   hexPrice = ethers.utils.hexlify(price)
@@ -62,7 +63,7 @@ App = {
       // gas: '0x5', // customizable by user during MetaMask confirmation.
       to: "0xf4392A8fB085d64Ec0e772f6CeB03B7b4254AaF5", // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
-      value: "0x29a2241af62c0000", // Only required to send ether to the recipient from the initiating external account.
+      value: Price , // Only required to send ether to the recipient from the initiating external account.
       // data:
       //   '0x7f7465737432000000000000000000000000000000000000000000000000000000600057', // Optional, but used for defining smart contract creation and interaction.
       chainId: "0x3", // Used to prevent transaction reuse across blockchains. Auto-filled by MetaMask.
@@ -83,7 +84,7 @@ App = {
       meta = instance;
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const account = accounts;
-      return meta.buyitem("shoes",{from: account[0], gas: 6385876, gasPrice: 20000000000});
+      return meta.buyitem([""],{from: account[0], gas: 8000000, gasPrice: 20000000000});
     
   })
   console.log("data added to blockchain")
@@ -114,6 +115,7 @@ veiwTxnhash: function () {
 $(document).ready(function () {
   App.init();
 });
+
 
 fetch('https://fakestoreapi.com/products').then((data)=>{
     // console.log(data)
