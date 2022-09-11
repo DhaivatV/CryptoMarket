@@ -119,21 +119,83 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
     // console.log(data)
     return data.json();
 }).then((completedata)=>{
-    // console.log(completedata)
+    console.log(completedata)
     let dataval="";
+    // completedata.map((val)=>{
+    //     dataval+=`<div class="card">
+    //     <h1 class="title">${val.title.substring(0,12)}</h1>
+    //       <img src=${val.image} alt="img" class="images" />
+    //       <p class="desc">${val.description.substring(0,100)}</p>
+    //       <p id="price">ETH ${((val.price)/10).toFixed(2)}</p>
+    //       <button onclick="App.buyItem()" id="btn">BUY</button>
+    //       <button  id="btn-1" onclick="addToCart(${val.id})" >Add to Cart</button>
+    //       <a href="transaction.html"><button  id="view" style="display: none; margin:auto">Show</button></a>
+    //   </div>`;
+    // });
+    // document.getElementById("main").innerHTML=dataval;
     completedata.map((val)=>{
-        dataval+=`<div class="card">
-        <h1 class="title">${val.title.substring(0,12)}</h1>
-          <img src=${val.image} alt="img" class="images" />
-          <p class="desc">${val.description.substring(0,100)}</p>
-          <p id="price">ETH ${((val.price)/10).toFixed(2)}</p>
-          <button onclick="App.buyItem()" id="btn">BUY</button>
-          <a href="transaction.html"><button  id="view" style="display: none; margin:auto">Show</button></a>
+      dataval+=`
+      <div class="product-box" >
+        <img class="product-img" src=${val.image} alt="img">
+        <h2 class="product-title">${val.title.substring(0,12)}</h2>
+        <span class="product-price">ETH ${((val.price)/10).toFixed(2)}</span>
+        <i class='bx bx-shopping-bag add-cart'></i>
       </div>`;
-    });
-    document.getElementById("main").innerHTML=dataval;
+  });
+  document.getElementById("main").innerHTML=dataval;
+
+  let valu="";
+
+  valu+=`
+  <img class="cart-img" src=${completedata[0].image} alt="">
+              <div class="detail-box" >
+  <div class="cart-product-title">${(completedata[1].title).substring(0,12)}</div>
+  <div class="cart-price">${completedata[1].price}</div>
+  <input type="number" value="1" class="cart-quantity">
+  </div><i class='bx bxs-trash-alt cart-remove' ></i>`;
+
+  document.getElementById("main-1").innerHTML=valu;
+  console.log("aaa",valu)
+
+
 
 
 }).catch((error)=>{
     console.log(error)
 })
+
+let cartIcon = document.querySelector('#cart-icon')
+let cart = document.querySelector('.cart')
+let closeCart = document.querySelector('#close-cart')
+
+cartIcon.onclick = () => {
+  cart.classList.add("active")  
+}
+closeCart.onclick = () => {
+  cart.classList.remove("active")  
+}
+// cart.onclick = () => {
+//   cart.classList.remove("active")  
+// }
+
+if(document.readyState == 'loading'){
+  document.addEventListener("DOMContentLoaded",ready)
+}
+else{
+  ready();
+}
+
+function ready(){
+  var removeCartButtons=document.getElementsByClassName('cart-remove')
+  console.log(removeCartButtons)
+  for(var i=0; i < removeCartButtons.length; i++){
+    var button = removeCartButtons[i]
+    button.addEventListener("click", removeCartItem)
+  }
+}
+
+function removeCartItem(event){
+  var buttonClicked = event.target
+  buttonClicked.parentElement.remove()
+}
+
