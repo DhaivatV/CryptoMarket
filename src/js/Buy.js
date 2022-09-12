@@ -146,18 +146,18 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
   });
   document.getElementById("main").innerHTML=dataval;
 
-  let valu="";
+  // let valu="";
 
-  valu+=`
-  <img class="cart-img" src=${completedata[0].image} alt="">
-              <div class="detail-box" >
-  <div class="cart-product-title">${(completedata[1].title).substring(0,12)}</div>
-  <div class="cart-price">${completedata[1].price}</div>
-  <input type="number" value="1" class="cart-quantity">
-  </div><i class='bx bxs-trash-alt cart-remove' ></i>`;
+  // valu+=`
+  // <img class="cart-img" src=${completedata[0].image} alt="">
+  //             <div class="detail-box" >
+  // <div class="cart-product-title">${(completedata[1].title).substring(0,12)}</div>
+  // <div class="cart-price">${completedata[1].price}</div>
+  // <input type="number" value="1" class="cart-quantity">
+  // </div><i class='bx bxs-trash-alt cart-remove' ></i>`;
 
-  document.getElementById("main-1").innerHTML=valu;
-  console.log("aaa",valu)
+  // document.getElementById("main-1").innerHTML=valu;
+  // console.log("aaa",valu)
 
 
 
@@ -170,12 +170,12 @@ let cartIcon = document.querySelector('#cart-icon')
 let cart = document.querySelector('.cart')
 let closeCart = document.querySelector('#close-cart')
 
-cartIcon.onclick = () => {
-  cart.classList.add("active")  
-}
-closeCart.onclick = () => {
-  cart.classList.remove("active")  
-}
+// cartIcon.onclick = () => {
+//   cart.classList.add("active")  
+// }
+// closeCart.onclick = () => {
+//   cart.classList.remove("active")  
+// }
 // cart.onclick = () => {
 //   cart.classList.remove("active")  
 // }
@@ -200,4 +200,13 @@ function removeCartItem(event){
   var buttonClicked = event.target
   buttonClicked.parentElement.remove()
 }
+
+
+// window.onclick = e => {
+//     console.log(e.target);  // to get the element
+//     console.log(e.target.tagName);  // to get the element tag name alone
+    
+// } 
+
+
 
