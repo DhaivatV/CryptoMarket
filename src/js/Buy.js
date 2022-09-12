@@ -170,12 +170,12 @@ let cartIcon = document.querySelector('#cart-icon')
 let cart = document.querySelector('.cart')
 let closeCart = document.querySelector('#close-cart')
 
-cartIcon.onclick = () => {
-  cart.classList.add("active")  
-}
-closeCart.onclick = () => {
-  cart.classList.remove("active")  
-}
+// cartIcon.onclick = () => {
+//   cart.classList.add("active")  
+// }
+// closeCart.onclick = () => {
+//   cart.classList.remove("active")  
+// }
 // cart.onclick = () => {
 //   cart.classList.remove("active")  
 // }
@@ -200,4 +200,13 @@ function removeCartItem(event){
   var buttonClicked = event.target
   buttonClicked.parentElement.remove()
 }
+
+
+// window.onclick = e => {
+//     console.log(e.target);  // to get the element
+//     console.log(e.target.tagName);  // to get the element tag name alone
+    
+// } 
+
+
 
