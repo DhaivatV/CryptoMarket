@@ -19,8 +19,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -40,8 +39,7 @@
       "name": "buyitem",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -54,8 +52,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -73,8 +70,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string[2]\",\"name\":\"item\",\"type\":\"string[2]\"}],\"name\":\"buyitem\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"checkUserRegistration\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cryptomarket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getContractProperties\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getUserItems\",\"outputs\":[{\"internalType\":\"string[]\",\"name\":\"\",\"type\":\"string[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"registerUser\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/CryptoMarket.sol\":\"CryptoMarket\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/CryptoMarket.sol\":{\"keccak256\":\"0xc4c0ac47159b35cdca110b1cf569697e0974dd8a24fe5d4a7cbb57dbac6f258c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9ff5c2cdf6b17972e37cb4dade2b8ccc64ff67f1ef8278e6a3abcb4a608195b0\",\"dweb:/ipfs/QmW6Ueq7vz3ByUEZnGBchu9CMBTEfRxFRowREe5xsmWf55\"]}},\"version\":1}",
@@ -10026,8 +10022,7 @@
     }
   },
   "schemaVersion": "3.4.9",
-  "updatedAt": "2022-09-08T19:13:01.944Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-09-14T03:19:09.174Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
