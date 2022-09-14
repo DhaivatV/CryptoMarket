@@ -107,6 +107,7 @@ else{
 veiwTxnhash: function () {
   
   document.getElementById("details").innerHTML = App.hash;
+  console.log("Hello")
   },
 
 
