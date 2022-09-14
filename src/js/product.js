@@ -36,6 +36,7 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
                 <p class="product-price">ETH ${((completedata[value-1].price)/10).toFixed(2)}</p>
             </div>
             <div class="prod-cart">
+            <button class="prod-buy">BUY</button>
                 <i class='bx bx-shopping-bag add-cart'></i>
             </div>
             </div>

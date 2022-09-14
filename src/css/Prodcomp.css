@@ -101,15 +101,37 @@ header i:hover{
 }
 .product-price{
     color: #FFB633;
-    font-size: larger;
-    font-weight: 800;
+    font-size: xx-large;
+    font-weight: 900;
     margin-top: 20px;
 }
 .prod-cart{
+    display: flex;
+    flex-direction: column;
+}
+.prod-buy{
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    padding: 10px;
+    width: 100px;
+    border-radius: .75rem;
+    background-color: #333333;
+    color: white;
+    font-weight: 800;
+    font-size: large;
+}
+.prod-buy:hover{
+    background-color: #FFB633;
+    color: black;
+    transition: .5s;
+}
+.prod-cart i{
+    margin-top: 10px;
     font-size: xx-large;
     cursor: pointer;
 }
-.prod-cart:hover{
+.prod-cart i:hover{
     color: #FFB633;
     transition: .5s;
 }
