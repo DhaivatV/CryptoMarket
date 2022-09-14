@@ -32,8 +32,8 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
             <div class="desc-box">
                 <div>
                 <h2 class="product-title">${completedata[value-1].title.substring(0,12)}</h2>
-                <p class="desc">${completedata[value-1].description.substring(0,100)}</p>
-                <p class="product-price">${((completedata[value-1].price)/10).toFixed(2)}</p>
+                <p class="desc">${completedata[value-1].description}</p>
+                <p class="product-price">ETH ${((completedata[value-1].price)/10).toFixed(2)}</p>
             </div>
             <div class="prod-cart">
                 <i class='bx bx-shopping-bag add-cart'></i>

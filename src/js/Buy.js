@@ -140,11 +140,12 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
     completedata.map((val)=>{
       dataval+=`
       <div class="product-box" >
+      <a class="abc" href="../ProductComp.html?_id=${val.id}">
         <img class="product-img" src=${val.image} alt="img">
         <h2 class="product-title">${val.title.substring(0,12)}</h2>
         <span class="product-price">ETH ${((val.price)/10).toFixed(2)}</span>
         <i class='bx bx-shopping-bag add-cart'></i>
-        <a class="abc" href="../ProductComp.html?_id=${val.id}">abcd</a>
+        </a>
       </div>`;
   });
   document.getElementById("main").innerHTML=dataval;
