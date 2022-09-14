@@ -123,6 +123,7 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
     return data.json();
 }).then((completedata)=>{
     console.log(completedata)
+    // console.log(completeda)
     let dataval="";
     // completedata.map((val)=>{
     //     dataval+=`<div class="card">
@@ -143,6 +144,7 @@ fetch('https://fakestoreapi.com/products').then((data)=>{
         <h2 class="product-title">${val.title.substring(0,12)}</h2>
         <span class="product-price">ETH ${((val.price)/10).toFixed(2)}</span>
         <i class='bx bx-shopping-bag add-cart'></i>
+        <a class="abc" href="../ProductComp.html?_id=${val.id}">abcd</a>
       </div>`;
   });
   document.getElementById("main").innerHTML=dataval;
@@ -203,11 +205,14 @@ function removeCartItem(event){
 }
 
 
-// window.onclick = e => {
-//     console.log(e.target);  // to get the element
-//     console.log(e.target.tagName);  // to get the element tag name alone
+window.onclick = e => {
+    // console.log(e.target);  // to get the element
+    query = (e.target.tagName);
     
-// } 
+    
+      
+    
+} 
 
 
 
