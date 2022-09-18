@@ -1,3 +1,5 @@
+
+
 App = {
   web3Provider: null,
   contracts: {},
@@ -110,12 +112,23 @@ veiwTxnhash: function () {
   console.log("Hello")
   },
 
+  initiateTxn: function(){
+    var nameContent = document.getElementById('prod').getElementsByTagName('h2')
+    var priceContent = document.getElementById('prod').getElementsByTagName('p')
+
+    itemName = (nameContent[0].innerHTML)
+    itemPrice = (priceContent[1].innerHTML).slice(4,)
+    console.log(itemName, itemPrice)
+
+    return ;
+  }
 
 };
 
 $(document).ready(function () {
   App.init();
 });
+
 
 
 fetch('https://fakestoreapi.com/products').then((data)=>{
@@ -214,6 +227,8 @@ window.onclick = e => {
       
     
 } 
+
+
 
 
 

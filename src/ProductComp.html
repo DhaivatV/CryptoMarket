@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/Prodcomp.css" />
     <script src="js/product.js"></script>
+    <script src="js/Buy.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"type="application/javascript"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <title>prodcomp</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 <body>
@@ -31,5 +35,11 @@
           <div class="content" id="prod">
             
           </div>
+
+          <div class="prod-cart">
+            <button class="prod-buy" onclick="App.initiateTxn()">BUY</button>
+                <i class='bx bx-shopping-bag add-cart'></i>
+           
+            </div>
 </body>
 </html>
