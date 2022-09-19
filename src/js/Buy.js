@@ -1,5 +1,7 @@
 
 
+
+
 App = {
   web3Provider: null,
   contracts: {},
@@ -49,21 +51,20 @@ App = {
   
 
   buyItem: async function (item, price) {
-    var Item = ["shoes"]
-    var Price = "0x29a2241af62c0000"
+    var Item = []
+    var Price = price
+    
 
     if (Item && Price){
       console.log(Item)
-    //  price = 3000000000000000000;
-
-    //   hexPrice = ethers.utils.hexlify(price)
-    //   console.log(hexPrice);
+      console.log(Price)
+    
     console.log("Transaction Initiated");
     const transactionParameters = {
       nonce: "0x00", // ignored by MetaMask
       // gasPrice: '0x09184e72a00000', // customizable by user during MetaMask confirmation.
       // gas: '0x5', // customizable by user during MetaMask confirmation.
-      to: "0xf4392A8fB085d64Ec0e772f6CeB03B7b4254AaF5", // Required except during contract publications.
+      to: "0x852E42EFF0fe0852a8E3FcAe8De9B6A5C7EBf33F", // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: Price , // Only required to send ether to the recipient from the initiating external account.
       // data:
@@ -84,14 +85,17 @@ App = {
     var meta;
     App.contracts.CryptoMarket.deployed().then(async function(instance){
       meta = instance;
+      console.log(meta)
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const account = accounts;
-      return meta.buyitem([""],{from: account[0], gas: 8000000, gasPrice: 20000000000});
-    
-  })
-  console.log("data added to blockchain")
-  document.getElementById("view").style.display = "block";
-  document.getElementById("btn").style.display = "none";
+      return meta.buyitem(Item, {from: account[0],
+        gas: 86999,
+        gasPrice: 0});
+      
+  // 
+})
+  
+console.log("data added to blockchain")
 
 }
 
@@ -113,14 +117,25 @@ veiwTxnhash: function () {
   },
 
   initiateTxn: function(){
+
+    var itemArr = []
     var nameContent = document.getElementById('prod').getElementsByTagName('h2')
     var priceContent = document.getElementById('prod').getElementsByTagName('p')
 
     itemName = (nameContent[0].innerHTML)
-    itemPrice = (priceContent[1].innerHTML).slice(4,)
-    console.log(itemName, itemPrice)
+    itemPriceInWei = ethers.utils.parseUnits(((priceContent[1].innerHTML).slice(4,)), "ether")
+    itemPrice = (itemPriceInWei._hex)
+    
+    // itemPrice = ethers.utils.hexlify(ethers.utils.toUtf8Bytes((priceContent[1].innerHTML).slice(4,)))
 
-    return ;
+    itemArr.push(itemName)
+    
+    
+    
+
+    
+
+    return App.buyItem(itemArr, itemPrice) ;
   }
 
 };
